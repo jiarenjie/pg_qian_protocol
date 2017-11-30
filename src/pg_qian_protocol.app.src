@@ -1,0 +1,26 @@
+{application, pg_qian_protocol,
+  [{description, "An OTP application"},
+    {vsn, "0.1.0"},
+    {registered, []},
+    {mod, {pg_qian_protocol_app, []}},
+    {applications,
+      [kernel,
+        stdlib
+      ]},
+    {env, [
+      {url, <<"https://api.bigsec.com/redq/v3/query/">>}
+      , {priv_dir, "/priv"}
+      , {qian_token_dir, "/keys"}
+      , {config_filename, "qian.config"}
+      , {config_file, [priv, qian_token_dir, config_filename]}
+    ]},
+    {modules, [
+      pg_qian_protocol_sup
+      , pg_qian_protocol_config
+      , pg_qian_protocol
+    ]},
+
+    {maintainers, []},
+    {licenses, ["Apache 2.0"]},
+    {links, []}
+  ]}.
