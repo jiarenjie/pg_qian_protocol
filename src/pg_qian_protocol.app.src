@@ -9,10 +9,12 @@
       ]},
     {env, [
       {url, <<"https://api.bigsec.com/redq/v3/query/">>}
-      , {priv_dir, "/priv"}
+      , {priv_dir, "/priv.shums"}
+%%      , {priv_dir, "/priv"}
       , {qian_token_dir, "/keys"}
       , {config_filename, "qian.config"}
-      , {config_file, [priv, qian_token_dir, config_filename]}
+      , {config_file, [home, priv_dir, qian_token_dir, config_filename]}
+%%      , {config_file, [priv, qian_token_dir, config_filename]}
     ]},
     {modules, [
       pg_qian_protocol_sup

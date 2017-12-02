@@ -24,6 +24,8 @@ setup() ->
   pg_test_utils:lager_init(),
   pg_test_utils:setup(mnesia),
 
+  env_init(),
+
   application:start(pg_qian_protocol),
 
   pg_test_utils:http_echo_server_init(pg_qian_protocol_echo_server),
@@ -46,10 +48,11 @@ env_init() ->
   Cfgs = [
     {?APP,
       [
-        {priv_dir, "/priv"}
+        {priv_dir, "/priv.shums"}
         , {qian_token_dir, "/keys"}
         , {config_filename, "qian.config"}
-        , {config_file, [priv, qian_token_dir, config_filename]}
+%%        , {config_file, [priv, qian_token_dir, config_filename]}
+        , {config_file, [home, priv_dir, qian_token_dir, config_filename]}
       ]
     }
   ],
